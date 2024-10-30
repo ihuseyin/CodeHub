@@ -1,14 +1,14 @@
 #include "libft.h"
 
-static size_t	ft_count(int n)
+static size_t	ft_count(long n)
 {
 	size_t	count;
 
 	count = 0;
-	if (n < 0)
+	if (n <= 0)
 	{
-		n = -n;
 		count++;
+		n = -n;
 	}
 	while (n != 0)
 	{
@@ -20,29 +20,27 @@ static size_t	ft_count(int n)
 
 char	*ft_itoa(int n)
 {
-	int		is_negative;
-	int		i;
-	int		num;
+	int	index;
+	long	num;
 	char	*str;
 
-	i = ft_count(n);
-	str = malloc(i + 1);
+	num = n;
+	index = ft_count(num);
+	str = malloc(index + 1);
 	if (str == NULL)
 		return (NULL);
-	is_negative = 0;
-	if (n < 0)
+	str[index] = '\0';
+	if (num == 0)
+		str[0] = '0';
+	if (num < 0)
 	{
-		is_negative = 1;
-		n = -n;
+		str[0] = '-';
+		num = -num;
 	}
-	str[i] = '\0';
-	while (n != 0)
+	while (num != 0)
 	{
-		num = n % 10;
-		str[--i] = num + '0';
-		n /= 10;
+		str[--index] = (num % 10) + '0';
+		num /= 10;
 	}
-	if (is_negative)
-		str[--i] = '-';
 	return (str);
 }
