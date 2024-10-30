@@ -20,9 +20,9 @@ static size_t	ft_count(int n)
 
 char	*ft_itoa(int n)
 {
-	int	is_negative;
-	int	i;
-	int	num;
+	int		is_negative;
+	int		i;
+	int		num;
 	char	*str;
 
 	i = ft_count(n);
