@@ -10,12 +10,12 @@ char	*ft_strtrim(const char *s1, const char *set)
 	if (!s1 || !set)
 		return (NULL);
 	start = s1;
-	while (*start && *start == *set)
+	while (*start && ft_strchr(set, *start))
 	{
 		start++;
 	}
 	end = s1 + ft_strlen(s1) - 1;
-	while (start < end && *end == *set)
+	while (start < end && ft_strchr(set, *end))
 	{
 		end--;
 	}
