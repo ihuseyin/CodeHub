@@ -14,6 +14,7 @@ static int	ft_count(const char *str, char c)
 		while (*str && *str != c)
 			str++;
 	}
+	return (len);
 }
 
 static void	ft_free(char **result, size_t index)
