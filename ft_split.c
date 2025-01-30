@@ -1,19 +1,19 @@
 #include "libft.h"
 
-static size_t	ft_count(const char *str, char c)
+static int	ft_count(const char *str, char c)
 {
-	const char	*ptr;
-	size_t		count;
+	int	len;
 
-	ptr = str;
-	count = 0;
-	while (*ptr)
+	len = 0;
+	while (*str)
 	{
-		if (*ptr == c)
-			count++;
-		ptr++;
+		while (*str == c)
+			str++;
+		if (*str)
+			len++;
+		while (*str && *str != c)
+			str++;
 	}
-	return (count + 1);
 }
 
 static void	ft_free(char **result, size_t index)
