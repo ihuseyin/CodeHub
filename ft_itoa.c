@@ -20,7 +20,7 @@ static size_t	ft_count(long n)
 
 char	*ft_itoa(int n)
 {
-	int	index;
+	int		index;
 	long	num;
 	char	*str;
 
